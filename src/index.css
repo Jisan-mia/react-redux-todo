@@ -8,8 +8,7 @@
 .App {
 	display: flex;
 	justify-content: space-around;
-	align-items: center;
-	/* flex-wrap: wrap; */
+	align-items: flex-start;
 }
 .todo-react {
 	margin-right: 100px;
