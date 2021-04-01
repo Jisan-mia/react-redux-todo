@@ -1,13 +1,97 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.App {
+	display: flex;
+	justify-content: space-between;
+}
+.todo-react {
+	margin-right: 100px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+	font-family: "Montserrat", sans-serif;
+	height: 100vh;
+	background-color: rgb(238, 238, 238);
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+form {
+	width: 400px;
+	padding: 25px;
+	background-color: rgb(255, 255, 255);
+	margin-top: 35px;
+	border-radius: 7px;
+}
+form h2 {
+	margin-bottom: 20px;
+}
+form input {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	font-size: 1rem;
+	margin: 15px 0;
+	border: 1px solid lightgray;
+}
+
+form input:focus {
+	outline: 1.5px solid royalblue;
+}
+.btn {
+	cursor: pointer;
+	background-color: rgba(88, 125, 238, 0.925);
+	color: white;
+	outline: none;
+	border: none;
+	margin-top: 15px;
+	border-radius: 3px;
+}
+
+.btn:active {
+	transform: scale(0.98);
+}
+
+.all-todo {
+	margin-top: 30px;
+	max-width: 400px;
+}
+.all-todo h2 {
+	font-size: 1.6rem;
+}
+
+.todo-div {
+	margin-top: 10px;
+	background-color: white;
+	padding: 15px 10px;
+	box-shadow: 3px 5px 32px rgb(0, 0, 0, 0.1);
+	border-radius: 2px;
+}
+
+.todo-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.todo-header .delete-todo {
+	cursor: pointer;
+	font-size: 1.3rem;
+	color: red;
+}
+
+.todo-div .todo-title {
+	font-size: 1.4rem;
+	color: rgba(65, 105, 225, 0.699);
+}
+
+.todo-div .todo-description {
+	color: #a3a3a3;
+	font-size: 0.95rem;
+	padding-top: 5px;
 }
