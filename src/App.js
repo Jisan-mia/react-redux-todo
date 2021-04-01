@@ -7,7 +7,7 @@ function App() {
 	const [todos, setTodos] = useState([
 		{
 			id: 1,
-			todoTitleInput: "Add a function",
+			todoTitleInput: "React Todo",
 			todoDescriptionInput:
 				"exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
 		},

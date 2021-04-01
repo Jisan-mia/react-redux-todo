@@ -11,7 +11,7 @@ function Todo({ todo, deleteTodo, isRedux, deleteTodoRedux }) {
 				<h3 className="todo-title">{isRedux ? todo.title : todoTitleInput}</h3>
 
 				{id === 1 ? (
-					"Demo"
+					<i style={{ fontSize: "0.8rem" }}>Demo</i>
 				) : (
 					<h3 className="delete-todo">
 						<b onClick={() => (isRedux ? deleteTodoRedux(id) : deleteTodo(id))}>
