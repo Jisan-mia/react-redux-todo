@@ -1,18 +1,29 @@
 import React from "react";
+import { connect } from "react-redux";
 import Todo from "./Todo";
 
-function Todos({ todos, deleteTodo }) {
-	console.log(todos);
+function Todos({ todos, deleteTodo, isRedux, reduxTodos }) {
 	return (
 		<div className="all-todo">
-			<h2>Todos</h2>
+			<h2>Todos ({isRedux ? "Redux" : "React"}) </h2>
 			{todos
 				? todos.map((todo, index) => (
 						<Todo key={index} todo={todo} deleteTodo={deleteTodo} />
+				  ))
+				: ""}
+			{isRedux
+				? reduxTodos.map((todo, index) => (
+						<Todo key={index} isRedux={isRedux} todo={todo} />
 				  ))
 				: ""}
 		</div>
 	);
 }
 
-export default Todos;
+const mapStateToProps = (state) => {
+	return {
+		reduxTodos: state.todos,
+	};
+};
+
+export default connect(mapStateToProps, null)(Todos);

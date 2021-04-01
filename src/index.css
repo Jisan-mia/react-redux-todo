@@ -7,7 +7,7 @@
 }
 .App {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 .todo-react {
 	margin-right: 100px;
@@ -28,6 +28,10 @@ form {
 	margin-top: 35px;
 	border-radius: 7px;
 }
+.reduxFormStyle {
+	background-color: rgb(105 105 105 / 12%);
+}
+
 form h2 {
 	margin-bottom: 20px;
 }
@@ -60,6 +64,21 @@ form input:focus {
 .all-todo {
 	margin-top: 30px;
 	max-width: 400px;
+	max-height: 350px;
+	overflow-y: scroll;
+}
+.all-todo::-webkit-scrollbar {
+	width: 5px;
+}
+
+/* Track */
+.all-todo::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+/* Handle */
+
+.all-todo::-webkit-scrollbar-thumb {
+	background: rgba(117, 117, 117, 0.589);
 }
 .all-todo h2 {
 	font-size: 1.6rem;

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { Provider } from "react-redux";
 import Todoform from "./components/Todoform";
 import Todos from "./components/Todos";
+import store from "./redux/store";
 function App() {
 	const [todos, setTodos] = useState([
 		{
@@ -31,16 +33,18 @@ function App() {
 	// };
 
 	return (
-		<div className="App">
-			<div className="todo-react">
-				<Todoform handleAddTodo={handleAddTodo} />
-				<Todos todos={todos} deleteTodo={deleteTodo} />
+		<Provider store={store}>
+			<div className="App">
+				<div className="todo-react">
+					<Todoform isRedux={false} handleAddTodo={handleAddTodo} />
+					<Todos isRedux={false} todos={todos} deleteTodo={deleteTodo} />
+				</div>
+				<div className="todo-redux">
+					<Todoform isRedux={true} />
+					<Todos isRedux={true} />
+				</div>
 			</div>
-			<div className="todo-redux">
-				<Todoform reduxSection={true} />
-				<Todos reduxSection={true} />
-			</div>
-		</div>
+		</Provider>
 	);
 }
 

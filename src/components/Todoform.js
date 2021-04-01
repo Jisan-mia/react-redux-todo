@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { addTodo } from "../redux";
 
-function Todoform({ handleAddTodo }) {
+function Todoform({ handleAddTodo, isRedux, addTodo }) {
 	const [todoTitleInput, setTodoTitleInput] = useState("");
 	const [todoDescriptionInput, setTodoDescriptionInput] = useState("");
 
@@ -15,9 +17,24 @@ function Todoform({ handleAddTodo }) {
 		setTodoDescriptionInput("");
 	};
 
+	const addTodoRedux = (e) => {
+		e.preventDefault();
+		const id = Math.floor(Math.random() * 10000) + 1;
+		if (todoTitleInput.length && todoDescriptionInput.length) {
+			addTodo(id, todoTitleInput, todoDescriptionInput);
+		} else {
+			console.log("please enter valid redux");
+		}
+		setTodoTitleInput("");
+		setTodoDescriptionInput("");
+	};
+
 	return (
-		<form onSubmit={onAddTask}>
-			<h2>Add Your Todo</h2>
+		<form
+			onSubmit={isRedux ? addTodoRedux : onAddTask}
+			className={isRedux ? "reduxFormStyle" : ""}
+		>
+			<h2>Add Your Todo ({isRedux ? "Redux" : "React"}) </h2>
 			<input
 				type="text"
 				onChange={(e) => setTodoTitleInput(e.target.value)}
@@ -35,4 +52,11 @@ function Todoform({ handleAddTodo }) {
 	);
 }
 
-export default Todoform;
+const mapDispatchToProps = (dispatch) => {
+	return {
+		addTodo: (id, title, description) =>
+			dispatch(addTodo(id, title, description)),
+	};
+};
+
+export default connect(null, mapDispatchToProps)(Todoform);
